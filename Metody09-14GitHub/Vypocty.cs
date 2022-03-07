@@ -28,61 +28,51 @@ namespace Metody09_14GitHub
             }
             return d;
         }
-
-        /* public static bool ObsahujeCislici(string a, bool Obsahujecislo, double soucetlichcifer, double soucetsudcisel)
-         {
-
-             bool JeCislo = int.TryParse(a, out int b);
-             if (JeCislo)
-             {
-
-
-                 while (b > 0)
-                 {
-                     int cifra = b % 10;
-
-                     cifra += b;
-                     int Lichcifra = 0;
-                     int Sudcifra = 0;
-                     if (cifra % 2 != 0)
-                     {
-                         Lichcifra += cifra;
-
-                     }
-                     if (cifra % 2 == 0)
-                     {
-                         Sudcifra += cifra;
-
-                     }
-                     b = b / 10;
-
-
-                 }*/
-        public static bool ObsahujeCislici(string idk, out int cifSoucet, out int lichCifSoucet, out int sudCifSoucet)
+        public static bool ObsahujeCislici(string sup, out int cifSoucet, out int lichCifSoucet, out int sudCifSoucet)
         {
             bool obsahujeCislici = false;
             cifSoucet = 0;
             lichCifSoucet = 0;
             sudCifSoucet = 0;
-            for (int i = 0; i < idk.Length; ++i)
+            for (int i = 0; i < sup.Length; ++i)
             {
-                if (Char.IsNumber(idk[i]))
+                if (Char.IsNumber(sup[i]))
                 {
                     obsahujeCislici = true;
-                    cifSoucet += int.Parse(idk[i].ToString());
+                    cifSoucet += int.Parse(sup[i].ToString());
 
-                    if (int.Parse(idk[i].ToString()) % 2 != 0)
+                    if (int.Parse(sup[i].ToString()) % 2 != 0)
                     {
-                        lichCifSoucet += int.Parse(idk[i].ToString());
+                        lichCifSoucet += int.Parse(sup[i].ToString());
                     }
-                    else if (int.Parse(idk[i].ToString()) % 2 == 0)
+                    else if (int.Parse(sup[i].ToString()) % 2 == 0)
                     {
-                        sudCifSoucet += int.Parse(idk[i].ToString());
+                        sudCifSoucet += int.Parse(sup[i].ToString());
                     }
                 }
             }
-
             return obsahujeCislici;
+        }
+        public static int PocetSlov1(string vstup,out string UpravenyRetezec )
+        {  
+            char[] separators = { ' ' };
+            vstup = vstup.Trim();
+            string[] poleslov = vstup.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            int PocetSlov = poleslov.Length;
+            
+            int i = 0;
+            while(i<vstup.Length)
+            {
+                if(char.IsNumber(vstup[i]))
+                {
+                    vstup= vstup.Remove(i, 1);
+
+                }
+                else ++i; 
+
+            }
+            UpravenyRetezec = vstup;                   
+            return (PocetSlov);
         }
 
 

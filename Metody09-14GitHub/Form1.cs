@@ -57,11 +57,24 @@ namespace Metody09_14GitHub
             {
                 MessageBox.Show("Obsahuje cislici");
                 MessageBox.Show("Ciferny soucet je"+cifsoucet);
-                MessageBox.Show("Ciferny soucet lich"+cifsoucet);
+                MessageBox.Show("Ciferny soucet lich"+lichsoucet);
                 MessageBox.Show("CIferny couset sud cisel je" +sudcifra);
 
             }
             else MessageBox.Show("Neobsahuje cifru");
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string a = textBox5.Text;
+            string UpravenyRetezec = " " ;
+            MessageBox.Show("Pocetslov je" + Vypocty.PocetSlov1(a,out  UpravenyRetezec));
+
+
+
+
+
 
         }
     }
